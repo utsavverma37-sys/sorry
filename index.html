@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<title>Sorry Betu 🥺</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffe4ec;--bg2:#ffd0df;--ink:#7a1f3d;--accent:#ff4d85;--card:#fff;--sky1:#ffdcc8;--sky2:#f9a9c6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1220;--bg2:#3a1830;--ink:#ffd6e5;--accent:#ff6b9d;--card:#fff;--sky1:#4a2340;--sky2:#22101f}}
+:root[data-theme="dark"]{--bg:#2a1220;--bg2:#3a1830;--ink:#ffd6e5;--accent:#ff6b9d;--card:#fff;--sky1:#4a2340;--sky2:#22101f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Baloo 2',system-ui,sans-serif;text-align:center}
+section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px}
+h1{font-size:clamp(2.4rem,9vw,4.5rem);font-weight:800;margin:0 0 28px;line-height:1.1}
+#hero{background:radial-gradient(circle at 50% 30%,var(--bg2),var(--bg) 70%)}
+.sub{max-width:24ch;font-size:1.3rem;margin:-10px 0 34px;opacity:0;animation:fade 2s 1.2s forwards}
+@keyframes fade{to{opacity:1}}
+.go{opacity:0;width:76px;height:76px;border-radius:50%;border:0;background:var(--accent);cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 0 rgba(122,31,61,.25);animation:fade 1s 3s forwards,nudge 1.4s 4s ease-in-out infinite}
+.go:focus-visible{outline:4px solid var(--ink);outline-offset:4px}
+.go:active{transform:translateY(4px);box-shadow:0 4px 0 rgba(122,31,61,.25)}
+@keyframes nudge{50%{transform:translateX(10px)}}
+#panda{display:none;background:var(--bg2)}
+#garden{display:none;background:linear-gradient(var(--sky1),var(--sky2));position:relative;overflow:hidden}
+#garden.show{display:flex}
+#garden::before{content:"";position:absolute;left:50%;top:18%;width:130vw;height:130vw;max-width:900px;max-height:900px;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,240,210,.65),transparent 62%)}
+#grass{position:absolute;left:0;bottom:0;width:100%;height:70px;z-index:2}
+.fly{position:absolute;z-index:2;width:5px;height:5px;border-radius:50%;background:#fff6c8;box-shadow:0 0 10px 4px rgba(255,240,170,.8);animation:fl linear infinite;opacity:0}
+@keyframes fl{0%{transform:translate(0,0);opacity:0}20%{opacity:.9}80%{opacity:.7}100%{transform:translate(30px,-140px);opacity:0}}
+#panda.show{display:flex}
+#panda svg.pd{width:min(340px,86vw);height:auto;animation:pop .7s cubic-bezier(.3,1.6,.5,1)}
+.tree{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(380px,84vw);height:auto;z-index:1;overflow:visible}
+#canopy{transform-box:view-box;transform-origin:150px 300px;animation:sway 7s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-1.2deg)}to{transform:rotate(1.2deg)}}
+#love{position:absolute;top:9%;left:0;right:0;z-index:3;font-size:clamp(2.6rem,12vw,5rem);font-weight:800;color:var(--accent);line-height:1.1}
+#love span{display:inline-block;opacity:0;transform:translateY(-24px) scale(.6);transition:opacity .8s,transform .8s cubic-bezier(.3,1.6,.5,1)}
+#love span.on{opacity:1;transform:none}
+.petal{position:absolute;z-index:3;pointer-events:none;border-radius:150% 0 150% 0;animation:fall linear forwards}
+@keyframes fall{0%{transform:translate(0,0) rotate(0);opacity:0}8%{opacity:1}30%{transform:translate(calc(var(--dx)*.6),calc(var(--dist)*.3)) rotate(120deg)}55%{transform:translate(calc(var(--dx)*-.2),calc(var(--dist)*.55)) rotate(240deg)}100%{transform:translate(var(--dx),var(--dist)) rotate(400deg);opacity:.9}}
+
+@keyframes pop{from{transform:scale(.2) translateY(60px);opacity:0}}
+.hint{margin-top:22px;font-size:1rem;opacity:.75}
+#final{display:none}
+#final.show{display:flex}
+#final h2{font-size:clamp(4rem,22vw,9rem);font-weight:800;color:var(--accent);margin:0;line-height:1}
+#final{background:linear-gradient(var(--bg),var(--bg2))}
+.msg{margin-top:24px;max-width:30ch}
+.msg p{font-size:1.25rem;margin:0 0 14px;opacity:0;transform:translateY(10px);transition:opacity 1.6s,transform 1.6s}
+.msg p.in{opacity:1;transform:none}
+.msg p.big{font-size:1.7rem;font-weight:800;color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.go,.sub{opacity:1;animation:none}#panda svg.pd{animation:none}.petal{position:absolute;z-index:3;pointer-events:none;border-radius:150% 0 150% 0;animation:fall linear forwards}html{scroll-behavior:auto}}
+#giftwrap{position:relative;margin-top:10px;display:flex;flex-direction:column;align-items:center}
+.giftbtn{width:min(300px,78vw);background:none;border:0;padding:0;cursor:pointer;animation:wig 1.6s ease-in-out infinite}
+.giftbtn:focus-visible{outline:4px solid var(--ink);outline-offset:4px}
+.giftbtn svg{width:100%;height:auto;overflow:visible}
+@keyframes wig{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-4deg)}80%{transform:rotate(4deg)}90%{transform:rotate(-3deg)}}
+#pnd{transform:translateY(110px);transition:transform 1s cubic-bezier(.3,1.5,.5,1)}
+#lid{transform-box:fill-box;transform-origin:center;transition:transform .8s ease-in,opacity .8s}
+.giftbtn.open{animation:none;cursor:default}
+.open #pnd{transform:none}
+.open #lid{transform:translate(-90px,-110px) rotate(-35deg);opacity:0}
+#mwah{font-size:1.8rem;font-weight:800;color:var(--accent);margin:6px 0 0;opacity:0;transition:opacity 1s}
+#mwah.in{opacity:1}
+.kiss{position:absolute;left:50%;bottom:52%;font-size:26px;pointer-events:none;animation:up 2.6s ease-out forwards}
+@keyframes up{0%{transform:translate(-50%,0) scale(.5);opacity:0}15%{opacity:1}100%{transform:translate(calc(-50% + var(--kx)),-190px) scale(1.3);opacity:0}}
+@media (prefers-reduced-motion:reduce){.giftbtn{animation:none}#pnd,#lid{transition:none}.kiss{display:none}}
+</style>
+</head>
+<body>
+<section id="hero">
+  <h1>I am sorry betu 🥺</h1>
+  <p class="sub">Maine aapko hurt kiya hai...</p>
+  <button class="go" id="btn" aria-label="Aage dekho">
+    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+  </button>
+</section>
+
+<section id="panda">
+  <svg class="pd" viewBox="0 0 300 340" role="img" aria-label="Panda I love you ka poster pakde hue">
+    <!-- body -->
+    <ellipse cx="150" cy="265" rx="80" ry="70" fill="#fff" stroke="#222" stroke-width="3"/>
+    <!-- feet -->
+    <ellipse cx="100" cy="325" rx="30" ry="15" fill="#222"/>
+    <ellipse cx="200" cy="325" rx="30" ry="15" fill="#222"/>
+    <!-- head -->
+    <circle cx="82" cy="62" r="26" fill="#222"/>
+    <circle cx="218" cy="62" r="26" fill="#222"/>
+    <circle cx="150" cy="105" r="72" fill="#fff" stroke="#222" stroke-width="3"/>
+    <ellipse cx="120" cy="100" rx="17" ry="23" fill="#222" transform="rotate(20 120 100)"/>
+    <ellipse cx="180" cy="100" rx="17" ry="23" fill="#222" transform="rotate(-20 180 100)"/>
+    <circle cx="122" cy="98" r="7" fill="#fff"/><circle cx="178" cy="98" r="7" fill="#fff"/>
+    <circle cx="124" cy="99" r="3.5" fill="#222"/><circle cx="176" cy="99" r="3.5" fill="#222"/>
+    <ellipse cx="150" cy="122" rx="9" ry="6" fill="#222"/>
+    <path d="M140 134q10 9 20 0" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="105" cy="127" r="8" fill="#ff8fb1" opacity=".7"/><circle cx="195" cy="127" r="8" fill="#ff8fb1" opacity=".7"/>
+    <!-- poster -->
+    <rect x="70" y="170" width="160" height="100" rx="10" fill="#fff" stroke="#ff4d85" stroke-width="5"/>
+    <path d="M150 208c-10-14-28-2-18 12 6 8 18 14 18 14s12-6 18-14c10-14-8-26-18-12z" fill="#ff4d85"/>
+    <text x="150" y="250" text-anchor="middle" font-family="Baloo 2,sans-serif" font-weight="800" font-size="24" fill="#ff4d85">I love you</text>
+    <!-- arms holding poster -->
+    <ellipse cx="72" cy="232" rx="17" ry="26" fill="#222" transform="rotate(-12 72 232)"/>
+    <ellipse cx="228" cy="232" rx="17" ry="26" fill="#222" transform="rotate(12 228 232)"/>
+  </svg>
+  <div class="hint">Neeche scroll karo ↓</div>
+</section>
+
+<section id="garden">
+  <div id="love" aria-label="I love you"></div>
+  <svg class="tree" viewBox="0 0 300 400" aria-hidden="true">
+    <defs><linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#5a3d2e"/><stop offset=".55" stop-color="#3d281d"/><stop offset="1" stop-color="#2a1a12"/></linearGradient></defs>
+    <ellipse cx="150" cy="397" rx="115" ry="8" fill="#000" opacity=".15"/>
+    <path d="M130 400C137 345 140 300 143 262C128 232 108 212 88 190L96 182C116 198 132 212 146 226C145 192 138 162 124 130L134 125C150 152 157 186 159 224C172 200 192 178 216 158L222 166C198 186 178 208 166 238C167 290 167 345 174 400Z" fill="url(#tg)"/>
+    <path d="M143 262C140 250 138 240 146 226M159 224C160 232 162 240 166 238" stroke="#33211a" stroke-width="2" fill="none"/>
+    <path d="M150 300v40M158 320v50M140 330v30" stroke="#33211a" stroke-width="1.5" opacity=".6"/>
+    <g stroke="#4a3226" fill="none" stroke-linecap="round"><path d="M92 188C80 176 66 172 56 160" stroke-width="5"/><path d="M128 128C124 108 112 96 104 80" stroke-width="5"/><path d="M216 160C230 150 244 148 254 136" stroke-width="5"/><path d="M146 226C150 190 150 160 152 120" stroke-width="6"/></g>
+    <g id="canopy"></g>
+  </svg>
+  <svg id="grass" viewBox="0 0 400 70" preserveAspectRatio="none" aria-hidden="true"></svg>
+</section>
+
+<section id="final">
+  <h2>Sorry</h2>
+  <div id="giftwrap">
+    <button class="giftbtn" id="gift" aria-label="Gift kholo">
+      <svg viewBox="0 0 300 300">
+        <g id="pnd">
+          <circle cx="105" cy="118" r="22" fill="#222"/><circle cx="195" cy="118" r="22" fill="#222"/>
+          <circle cx="150" cy="165" r="62" fill="#fff" stroke="#222" stroke-width="3"/>
+          <ellipse cx="125" cy="158" rx="13" ry="18" fill="#222" transform="rotate(20 125 158)"/>
+          <ellipse cx="175" cy="158" rx="13" ry="18" fill="#222" transform="rotate(-20 175 158)"/>
+          <path d="M117 158q8-8 16 0M167 158q8-8 16 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="150" cy="178" rx="7" ry="5" fill="#222"/>
+          <path id="smile" d="M142 187q8 7 16 0" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path id="lips" d="M150 197c-9-1-12-9-6-11 3-1 5 1 6 3 1-2 3-4 6-3 6 2 3 10-6 11z" fill="#ff4d6d" style="display:none"/>
+          <circle cx="104" cy="182" r="8" fill="#ff8fb1" opacity=".7"/><circle cx="196" cy="182" r="8" fill="#ff8fb1" opacity=".7"/>
+        </g>
+        <g id="box"><rect x="60" y="195" width="180" height="95" rx="6" fill="#ff4d85"/><rect x="140" y="195" width="20" height="95" fill="#ffd166"/></g>
+        <g id="lid"><rect x="50" y="165" width="200" height="34" rx="6" fill="#ff6f9f"/><rect x="140" y="165" width="20" height="34" fill="#ffd166"/>
+          <ellipse cx="122" cy="156" rx="24" ry="12" fill="none" stroke="#ffd166" stroke-width="7" transform="rotate(-20 122 156)"/>
+          <ellipse cx="178" cy="156" rx="24" ry="12" fill="none" stroke="#ffd166" stroke-width="7" transform="rotate(20 178 156)"/>
+          <circle cx="150" cy="162" r="8" fill="#ffd166"/></g>
+      </svg>
+    </button>
+    <p class="hint" id="ghint">Gift kholo 🎁</p>
+    <p id="mwah">Mwaaah 💋</p>
+  </div>
+</section>
+
+<script>
+document.getElementById('btn').addEventListener('click',function(){
+  var p=document.getElementById('panda'),f=document.getElementById('final');
+  p.classList.add('show');document.getElementById('garden').classList.add('show');f.classList.add('show');
+  setTimeout(function(){p.scrollIntoView({behavior:'smooth'})},50);
+});
+var started=false;
+(function(){
+  var c=document.getElementById('canopy'),out='';
+  function lay(n,cols,rmin,rr,ex,ey,op){for(var i=0;i<n;i++){var a=Math.random()*6.283,r=Math.sqrt(Math.random()),x=150+Math.cos(a)*r*ex,y=115+Math.sin(a)*r*ey;
+    out+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+(rmin+Math.random()*rr).toFixed(1)+'" fill="'+cols[Math.floor(Math.random()*cols.length)]+'" opacity="'+(op+Math.random()*.25).toFixed(2)+'"/>'}}
+  lay(90,['#e97fa6','#f08cb0','#f4a0bd'],10,12,128,95,.7);
+  lay(120,['#ffb7cf','#ff9dbd','#ffc9da'],7,11,120,88,.75);
+  lay(60,['#ffe8f0','#fff','#ffd9e6'],3,5,115,82,.85);
+  c.innerHTML=out;
+  var gs=document.getElementById('grass'),gp='';
+  for(var j=0;j<130;j++){var gx=Math.random()*400,gh=18+Math.random()*40,lean=(Math.random()*14-7);
+    gp+='<path d="M'+gx.toFixed(1)+' 70q'+(lean/2).toFixed(1)+' -'+(gh/2).toFixed(1)+' '+lean.toFixed(1)+' -'+gh.toFixed(1)+'" stroke="'+['#6f9c5c','#82b06c','#5c8a4e'][j%3]+'" stroke-width="2" fill="none" stroke-linecap="round" transform="translate(0,0)"/>'}
+  gs.innerHTML=gp;
+  var gd=document.getElementById('garden');
+  for(var k=0;k<14;k++){var f=document.createElement('span');f.className='fly';f.style.left=(Math.random()*100)+'%';f.style.bottom=(8+Math.random()*30)+'%';f.style.animationDuration=(6+Math.random()*6)+'s';f.style.animationDelay=(Math.random()*6)+'s';gd.appendChild(f)}
+  var gb=document.getElementById('gift');
+  gb.addEventListener('click',function(){
+    if(gb.classList.contains('open'))return;
+    gb.classList.add('open');document.getElementById('ghint').style.display='none';
+    setTimeout(function(){
+      document.getElementById('smile').style.display='none';document.getElementById('lips').style.display='';
+      document.getElementById('mwah').classList.add('in');
+      var w=document.getElementById('giftwrap'),n=0,em=['💋','❤️','💋','💖'];
+      var t=setInterval(function(){
+        var k=document.createElement('span');k.className='kiss';k.textContent=em[n%4];
+        k.style.setProperty('--kx',(Math.random()*100-50)+'px');
+        w.appendChild(k);setTimeout(function(){k.remove()},2700);
+        if(++n>=10)clearInterval(t);
+      },350);
+    },1000);
+  });
+  var L=document.getElementById('love'),txt='I love you \u2764\ufe0f';
+  txt.split('').forEach(function(ch){var s=document.createElement('span');s.innerHTML=ch===' '?'&nbsp;':ch;L.appendChild(s)});
+  var g=document.getElementById('garden');
+  new IntersectionObserver(function(e){if(e[0].isIntersecting)startPetals()},{threshold:.5}).observe(g);
+})();
+function startPetals(){
+  if(started)return;started=true;
+  var p=document.getElementById('garden'),t=p.querySelector('.tree'),sp=document.querySelectorAll('#love span'),idx=0;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){sp.forEach(function(s){s.classList.add('on')});return}
+  var pc=['#ffb7cf','#ff9dbd','#ffd1e0','#fff'];
+  function drop(){
+    var pr=p.getBoundingClientRect(),tr=t.getBoundingClientRect();
+    var el=document.createElement('span');el.className='petal';
+    var w=9+Math.random()*7;el.style.width=w+'px';el.style.height=(w*1.3)+'px';
+    el.style.background=pc[Math.floor(Math.random()*pc.length)];
+    var x=tr.left-pr.left+tr.width*(.15+Math.random()*.7),y=tr.top-pr.top+tr.height*(.08+Math.random()*.25);
+    el.style.left=x+'px';el.style.top=y+'px';
+    el.style.setProperty('--dx',(Math.random()*140-70)+'px');
+    el.style.setProperty('--dist',(pr.height-y-10)+'px');
+    var far=Math.random()<.3;if(far){el.style.filter='blur(1.5px)';el.style.width=(w*1.5)+'px';el.style.height=(w*1.95)+'px';el.style.opacity=.7}
+    el.style.animationDuration=(9+Math.random()*6+(far?4:0))+'s';
+    p.appendChild(el);el.addEventListener('animationend',function(){el.remove()});
+    if(idx<sp.length){sp[idx++].classList.add('on')}
+  }
+  drop();setInterval(drop,900);
+}
+</script>
+</body>
+</html>
